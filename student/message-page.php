@@ -545,10 +545,10 @@ if (isset($_SESSION['RollNo'])) {
                                                     <tr>
 
                                                         <td class="text-center">
-                                                            <?php echo $msg['Msg']; ?>
+                                                            <?php echo $msg['content']; ?>
                                                         </td>
-                                                        <td class="text-center"><?php convertDate($msg['Date']); ?></td>
-                                                        <td class="text-center"><?php convertTime($msg['Time']); ?></td>
+                                                        <td class="text-center"><?php convertDate($msg['date']); ?></td>
+                                                        <td class="text-center"><?php convertTime($msg['time']); ?></td>
 
 
 

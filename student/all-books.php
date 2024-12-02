@@ -551,7 +551,64 @@ JOIN bookauthors ba ON ba.authorid = a.authorid;");
                             </nav>
                         </div>
                         <!-- /BREADCRUMB -->
+                        <p>Filter by : </p>
+                        <div class="row">
 
+                            <div class="col-md-2">
+
+                                <select class="form-select form-select-sm mb-3" aria-label=".form-select-lg example" id="filterpublisher">
+                                    <option value="" selected>All Publisher</option>
+                                    <?php foreach ($publishers as $pb): ?>
+                                        <option value="<?php echo $pb["name"]; ?>"><?php echo $pb["name"]; ?></option>
+                                    <?php endforeach; ?>
+                                    <!-- <option value="Pearson">Pearson</option>
+                                            <option value="NITC">NITC</option>
+                                            <option value="Target67">Target67</option> -->
+                                </select>
+                            </div>
+                            <!-- <div class="col-md-2">
+
+                                        <select class="form-select form-select-sm mb-3" aria-label=".form-select-lg example" id="filterauthors">
+                                            <option value="" selected>All Authors</option>
+                                            <?php foreach ($authors_origlists as $auth): ?>
+                                                <option value="<?php echo $auth["name"]; ?>"><?php echo $auth["name"]; ?></option>
+                                            <?php endforeach; ?>
+                                             
+                                        </select>
+                                    </div> -->
+                            <div class="col-md-3">
+                                <select class="form-select form-select-sm mb-3" aria-label=".form-select-lg example" id="filtersoureoffund">
+                                    <option value="" selected>All Source of Funds</option>
+                                    <option value="DONATION">Donation</option>
+                                    <option value="LGU FUND">LGU FUND</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <select class="form-select form-select-sm mb-3" aria-label=".form-select-lg example" id="filterplaceofpublication">
+
+                                    <option value="" selected>All Place of Publication</option>
+                                    <?php foreach ($placeofpubs as $pp): ?>
+                                        <option value="<?php echo $pp["name"]; ?>"><?php echo $pp["name"]; ?></option>
+                                    <?php endforeach; ?>
+
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <select class="form-select form-select-sm mb-3" aria-label=".form-select-lg example" id="filtersection">
+                                    <option value="" selected>All Section</option>
+                                    <?php foreach ($booksections as $sec): ?>
+                                        <option value="<?php echo $sec["name"]; ?>"><?php echo $sec["name"]; ?></option>
+                                    <?php endforeach; ?>
+                                    <!-- <option value="FILIPINIANA">FILIPINIANA</option>
+                                            <option value="CIRCULATION">CIRCULATION</option> -->
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-2">
+                                <button class="btn btn-primary" id="filterbtn">Filter</button>
+                            </div>
+                        </div>
                         <div class="seperator-header">
 
                         </div>
@@ -559,7 +616,7 @@ JOIN bookauthors ba ON ba.authorid = a.authorid;");
                         <div class="row layout-spacing">
                             <div class="col-lg-12">
                                 <div class="statbox widget box box-shadow">
-                                    <div class="widget-content widget-content-area">
+                                    <div class="widget-content widget-content-area" id="filterallbooks">
                                         <table id="style-3" class="table style-3 dt-table-hover">
                                             <thead>
                                                 <tr>
@@ -952,6 +1009,31 @@ JOIN bookauthors ba ON ba.authorid = a.authorid;");
                 //
 
             }
+            // filtering ajax
+            function showAjax(url, param, div) {
+                $.get(url, param, function(data) {
+                    $('#' + div).html(data);
+                });
+            };
+            let filterbtn = document.getElementById('filterbtn');
+
+            filterbtn.addEventListener("click", () => {
+                let fpublisher = $("#filterpublisher").val();
+                //let fauthors = $("#filterauthors").val();
+                let fsourceoffund = $("#filtersoureoffund").val();
+                let fpub = $("#filterplaceofpublication").val();
+                let fsection = $("#filtersection").val();
+
+                let data = {
+                    fpublisher,
+                    // fauthors,
+                    fsourceoffund,
+                    fpub,
+                    fsection
+                }
+                console.log("data=>", data);
+                showAjax('filters/all-books.php', data, "filterallbooks");
+            })
         </script>
         <script>
             // var e;

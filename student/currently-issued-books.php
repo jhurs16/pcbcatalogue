@@ -21,15 +21,10 @@ if (isset($_SESSION['RollNo'])) {
     $email = $currentuser['Email'];
     $mobno = $currentuser['MobNo'];
 
-    $db->query("SELECT * FROM record AS rc
-              INNER JOIN 
-                book 
-              ON rc.BookId = book.Bookid
-              WHERE RollNo = '$rollno'
-              AND Date_of_Borrow is NOT NULL 
-              AND Date_of_Return is NULL
-              ORDER BY Date_of_Borrow DESC");
-
+    $db->query("SELECT br.*, b.* FROM borrowrecords AS br 
+    Inner Join book b ON br.bookid = b.Bookid where userid=? and status = 'borrowed'
+    order by borrowdate asc limit 5");
+    $db->bind(1, $_SESSION['RollNo']);
     $current_records = $db->set();
     // echo count($current_records);
     // echo '<br/>';
@@ -547,9 +542,9 @@ if (isset($_SESSION['RollNo'])) {
                                                 foreach ($current_records as $current):
                                                     $bookid = $current['BookId'];
                                                     $name = $current['Title'];
-                                                    $issuedate = $current['Date_of_Borrow'];
-                                                    $duedate = $current['Due_Date'];
-                                                    $renewals = $current['Renewals_left'];
+                                                    $issuedate = $current['borrowdate'];
+                                                    $duedate = $current['duedate'];
+                                                    $renewals = $current['renewalsleft'];
 
 
                                                 ?>

@@ -22,13 +22,10 @@ if (isset($_SESSION['RollNo'])) {
     $mobno = $currentuser['MobNo'];
 
     // prrevious
-    $db->query("SELECT * FROM record AS rc
-              INNER JOIN 
-                book 
-              ON rc.BookId = book.Bookid
-              WHERE RollNo = '$rollno'
-              AND Date_of_Borrow is NOT NULL 
-              AND Date_of_Return is NOT NULL");
+    $db->query("SELECT br.*, b.* FROM borrowrecords AS br 
+    Inner Join book b ON br.bookid = b.Bookid where userid=? and status = 'borrowed'
+    order by borrowdate desc limit 5");
+    $db->bind(1, $_SESSION['RollNo']);
     $previous_records = $db->set();
 
 
@@ -544,8 +541,8 @@ if (isset($_SESSION['RollNo'])) {
                                                 foreach ($previous_records as $record):
 
                                                     $name = $record['Title'];
-                                                    $issuedate = $record['Date_of_Borrow'];
-                                                    $returndate = $record['Date_of_Return'];
+                                                    $issuedate = $record['borrowdate'];
+                                                    $returndate = $record['returndate'];
                                                 ?>
 
                                                     <tr>
