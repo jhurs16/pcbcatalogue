@@ -1,0 +1,227 @@
+.modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 40%;
+        }
+
+        .close {
+            color: red;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .logo {
+    display: block;
+    margin-left: 50%;
+    margin-right: 50%;
+    width: 30%;
+}
+.container img {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: -1;
+}
+.container {
+    width: 70%;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: ghostwhite;
+    border: 2px ridge rgba(238, 238, 238, 0.13);
+    border-radius: 5px;
+    -moz-box-shadow: 0 -5px 10px 1px rgba(16, 16, 16, 0.57);
+    -webkit-box-shadow: 0 -5px 10px 1px rgba(16, 16, 16, 0.57);
+    box-shadow: 0 -5px 10px 1px rgba(16, 16, 16, 0.57);
+    border-bottom: none;
+    border-bottom-left-radius: initial;
+    border-bottom-right-radius: initial;
+}
+	.login {
+	margin-left: 25%;
+	margin-right: 25%;
+
+	    
+	}
+input[type="text"], input[type="password"] {
+    width: 93.4%;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 15px;
+    border-bottom: 1px solid black;
+    outline: none;
+    color: black;
+}
+::-webkit-input-placeholder {
+    color: dimgray;
+}
+
+:-moz-placeholder {
+    color: dimgray;
+}
+
+::-moz-placeholder {
+    color: dimgray;
+}
+
+:-ms-input-placeholder {
+    color:dimgray;
+}
+
+h2 {
+    font-size: 35px;
+    text-align: left;
+    color: black;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+p{
+	text-align: center;
+}
+input[type="text"], input[type="password"] {
+    width: 93.4%;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    border-bottom: 1px solid black;
+    outline: none;
+    color: solid black;
+}
+.send{
+	    margin-left: 30%;
+    margin-bottom: 20px;
+}
+.send input[type="submit"] {
+    width: 60%;
+    padding: 10px 0;
+    font-size: 20px;
+    font-weight: 100;
+    background-color: antiquewhite;
+    color: solid black;
+    border: 3px solid black;
+    border-width: thin;
+    cursor: pointer;
+    outline: none;
+    transition:0.5s all;
+    -webkit-transition:0.5s all;
+    -moz-transition:0.5s all;
+    -o-transition:0.5s all;
+    -ms-transition:0.5s all;
+    text-decoration: none;
+}
+
+/*--w3layouts--*/
+/*--agileits--*/
+.send input[type="submit"]:hover {
+    background-color: salmon;
+    border: 1px solid black;
+    color: #FFF;
+    transition:0.5s all;
+    -webkit-transition:0.5s all;
+    -moz-transition:0.5s all;
+    -o-transition:0.5s all;
+    -ms-transition:0.5s all;
+    text-decoration: none;
+}
+
+.send-button {
+    margin-left: 30%;
+    margin-bottom: 20px;
+
+}
+
+.send-button input[type="submit"] {
+    width: 60%;
+    padding: 10px 0;
+    font-size: 20px;
+    font-weight: 100;
+    background-color: lightgreen;
+    color:  black;
+    border: 3px solid black;
+    border-width: thin;
+    cursor: pointer;
+    outline: none;
+    transition:0.5s all;
+    -webkit-transition:0.5s all;
+    -moz-transition:0.5s all;
+    -o-transition:0.5s all;
+    -ms-transition:0.5s all;
+    text-decoration: none;
+}
+
+/*--w3layouts--*/
+/*--agileits--*/
+.send-button input[type="submit"]:hover {
+    background-color: green;
+    border: 1px solid black;
+    color: #fff;
+    transition:0.5s all;
+    -webkit-transition:0.5s all;
+    -moz-transition:0.5s all;
+    -o-transition:0.5s all;
+    -ms-transition:0.5s all;
+    text-decoration: none;
+}
+h1 {
+    font-family: serif;
+    font-size: 50px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    margin: 0 120px;
+    color: #FFFFFF; /* Text color */
+    margin-bottom: 7%;
+    margin-top: 7%;
+    text-shadow: 
+        3px 3px 0 #000,  
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000; /* Creates a black border effect */
+}
+body{
+		 background: url("../images/cover.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+
+}
+.con {
+    width: 50%;
+   margin-left: 23%;
+    padding: 30px;
+    background-color: rgba(10, 10, 10, 0.77);
+    border: 2px ridge rgba(238, 238, 238, 0.13);
+    border-radius: 5px;
+    -moz-box-shadow: 0 -5px 10px 1px rgba(16, 16, 16, 0.57);
+    -webkit-box-shadow: 0 -5px 10px 1px rgba(16, 16, 16, 0.57);
+    box-shadow: 0 -5px 10px 1px rgba(16, 16, 16, 0.57);
+    border-bottom: none;
+    border-bottom-left-radius: initial;
+    border-bottom-right-radius: initial;
+}
